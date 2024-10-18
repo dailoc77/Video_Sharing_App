@@ -1,11 +1,11 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/stack";
 import Post_Video_Screen from "./screens/Post_Video_Screen";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Image } from "react-native";
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
