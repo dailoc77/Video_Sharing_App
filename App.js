@@ -2,9 +2,9 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Follow_Screen from "./screens/Follow_Screen";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
 import { Image } from "react-native";
-import { View } from "react-native-web";
+import { View } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
