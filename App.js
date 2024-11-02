@@ -7,13 +7,14 @@ import { View } from "react-native";
 import Post_Video_Screen from "./screens/Post_Video_Screen";
 import Follow_Screen from "./screens/Follow_Screen";
 import Comment_on_Video from "./screens/Comment_on_Video";
+import Create_Video_Select_Filter from "./screens/Create_Video_Select_Filter";
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Comment">
+      <Stack.Navigator initialRouteName="SelectFilter">
         <Stack.Screen name="PostVideo" component={Post_Video_Screen} options={{
           headerRight: () => (
             <TouchableOpacity>
@@ -54,6 +55,11 @@ export default function App() {
         <Stack.Screen
           name="Comment"
           component={Comment_on_Video}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SelectFilter"
+          component={Create_Video_Select_Filter}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
