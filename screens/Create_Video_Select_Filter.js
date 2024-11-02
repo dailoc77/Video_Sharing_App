@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  SafeAreaView,
   Modal,
   View,
   Text,
@@ -12,46 +13,14 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 const filterOptions = [
-  {
-    id: "1",
-    name: "Film",
-    icon: require("../assets/Data/Create_Video_Select_Filter/Image_45.png"),
-  },
-  {
-    id: "2",
-    name: "Black white",
-    icon: require("../assets/Data/Create_Video_Select_Filter/Image_38.png"),
-  },
-  {
-    id: "3",
-    name: "Natural",
-    icon: require("../assets/Data/Create_Video_Select_Filter/Image_40.png"),
-  },
-  {
-    id: "4",
-    name: "Art",
-    icon: require("../assets/Data/Create_Video_Select_Filter/Image_39.png"),
-  },
-  {
-    id: "5",
-    name: "Vintage",
-    icon: require("../assets/Data/Create_Video_Select_Filter/Image_41.png"),
-  },
-  {
-    id: "6",
-    name: "Spring",
-    icon: require("../assets/Data/Create_Video_Select_Filter/Image_42.png"),
-  },
-  {
-    id: "7",
-    name: "Baby",
-    icon: require("../assets/Data/Create_Video_Select_Filter/Image_43.png"),
-  },
-  {
-    id: "8",
-    name: "Contrast",
-    icon: require("../assets/Data/Create_Video_Select_Filter/Image_44.png"),
-  },
+  { id: "1", name: "Film", icon: require("../assets/Data/Create_Video_Select_Filter/Image_45.png") },
+  { id: "2", name: "Black white", icon: require("../assets/Data/Create_Video_Select_Filter/Image_38.png") },
+  { id: "3", name: "Natural", icon: require("../assets/Data/Create_Video_Select_Filter/Image_40.png") },
+  { id: "4", name: "Art", icon: require("../assets/Data/Create_Video_Select_Filter/Image_39.png") },
+  { id: "5", name: "Vintage", icon: require("../assets/Data/Create_Video_Select_Filter/Image_41.png") },
+  { id: "6", name: "Spring", icon: require("../assets/Data/Create_Video_Select_Filter/Image_42.png") },
+  { id: "7", name: "Baby", icon: require("../assets/Data/Create_Video_Select_Filter/Image_43.png") },
+  { id: "8", name: "Contrast", icon: require("../assets/Data/Create_Video_Select_Filter/Image_44.png") },
 ];
 
 const filterCategories = ["For you", "Trending", "Saved"];
@@ -65,22 +34,22 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ImageBackground
-        source={require("../assets/Data/Create_Video_Select_Filter/Image_35.png")} // Replace with your background image path
+        source={require("../assets/Data/Create_Video_Select_Filter/Image_35.png")}
         style={styles.backgroundImage}
         resizeMode="cover"
       >
-        <View style={styles.addAudioContainer}>
+        <View style={styles.header}>
           <TouchableOpacity>
             <Ionicons name="close" size={24} color="black" />
           </TouchableOpacity>
-          <TouchableOpacity style={{ marginLeft: "70%" }}>
-            <Image
-              source={require("../assets/Data/Create_Video_Select_Filter/Button_9.png")}
-            />
+          {/* Centered Button_9 Icon */}
+          <TouchableOpacity style={styles.addAudioButton}>
+            <Image source={require("../assets/Data/Create_Video_Select_Filter/Button_9.png")} />
           </TouchableOpacity>
         </View>
+
         {/* Side Buttons */}
         <View style={styles.sideButtons}>
           <TouchableOpacity style={styles.sideButton}>
@@ -117,13 +86,11 @@ export default function App() {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
-            <TouchableOpacity
-              onPress={toggleFilterModal}
-              style={styles.closeButton}
-            >
+            <TouchableOpacity onPress={toggleFilterModal} style={styles.closeButton}>
               <Text style={styles.closeButtonText}>×</Text>
             </TouchableOpacity>
             <Text style={styles.modalTitle}>Add Filter</Text>
+            
             {/* Filter Categories */}
             <View style={styles.categoryContainer}>
               {filterCategories.map((category) => (
@@ -161,34 +128,34 @@ export default function App() {
           </View>
         </View>
       </Modal>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#fff",
   },
   backgroundImage: {
     flex: 1,
-    aspectRatio: 9 / 16,
     width: "100%",
     height: "100%",
   },
-  addAudioContainer: {
-    position: "absolute",
-    top: 25,
-    left: 10,
+  header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 5,
+    justifyContent: "space-between",
     paddingHorizontal: 10,
-    borderRadius: 15,
+    paddingTop: 50,
+  },
+  addAudioButton: {
+    alignSelf: "center",
+    marginRight: 127
   },
   sideButtons: {
     position: "absolute",
-    top: 80,
+    top: 100,
     right: 10,
     alignItems: "center",
   },
