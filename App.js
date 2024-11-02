@@ -1,26 +1,27 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Follow_Screen from "./screens/Follow_Screen";
+import { createStackNavigator } from "@react-navigation/stack";
 import { TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 import { View } from "react-native";
+import Post_Video_Screen from "./screens/Post_Video_Screen";
+import Follow_Screen from "./screens/Follow_Screen";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        {/* <Stack.Screen name="Post on social" component={Post_Video_Screen} options={{
+      <Stack.Navigator initialRouteName="Follow">
+        <Stack.Screen name="PostVideo" component={Post_Video_Screen} options={{
           headerRight: () => (
             <TouchableOpacity>
               <Image source={require('./assets/Data/CreateVideoPostVideo/Button_15.png')} style={{ width: 20, height: 20 }}/>
             </TouchableOpacity>
           )
-        }}/> */}
+        }}/>
         <Stack.Screen
-          name="Ruth Sanders"
+          name="Follow"
           component={Follow_Screen}
           options={{
             headerLeft: () => (
