@@ -6,13 +6,14 @@ import { Image } from "react-native";
 import { View } from "react-native";
 import Post_Video_Screen from "./screens/Post_Video_Screen";
 import Follow_Screen from "./screens/Follow_Screen";
+import Comment_on_Video from "./screens/Comment_on_Video";
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Follow">
+      <Stack.Navigator initialRouteName="Comment">
         <Stack.Screen name="PostVideo" component={Post_Video_Screen} options={{
           headerRight: () => (
             <TouchableOpacity>
@@ -49,6 +50,11 @@ export default function App() {
               </View>
             ),
           }}
+        />
+        <Stack.Screen
+          name="Comment"
+          component={Comment_on_Video}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
