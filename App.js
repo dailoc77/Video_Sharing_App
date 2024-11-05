@@ -7,7 +7,7 @@ import { View } from "react-native";
 import Post_Video_Screen from "./screens/Post_Video_Screen";
 import Follow_Screen from "./screens/Follow_Screen";
 import Comment_on_Video from "./screens/Comment_on_Video";
-import Create_Video_Select_Filter from "./screens/Create_Video_Select_Filter";
+import Create_Video from "./screens/Create_Video";
 
 const Stack = createStackNavigator();
 
@@ -59,7 +59,7 @@ export default function App() {
         />
         <Stack.Screen
           name="SelectFilter"
-          component={Create_Video_Select_Filter}
+          component={Create_Video}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
